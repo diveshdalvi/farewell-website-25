@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: Duhit;
+  src: url("/public/fonts/Duhit-Regular.otf");
+}
+@font-face {
+  font-family: Oblata;
+  src: url("/public/fonts/OblataDisplayRegular-Zp8o8.otf");
+}
+
+@theme {
+  --font-Duhit: Duhit, "sans-serif";
+  --font-Oblata: Oblata, "sans-serif";
+}
