@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Book from "./components/Book";
 import bg from "./assets/images/lastBG.png";
+import batch25PDF from "../public/pdf/batch2025.pdf";
 // import bg from "./assets/images/bg.jpeg";
 // import bg from "./assets/images/bg[1].jpg";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -29,7 +30,7 @@ const App = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/public/pdf/batch2025.pdf"; // Adjust the path as necessary
+    link.href = batch25PDF; // Adjust the path as necessary
     link.download = "batch2025.pdf";
     document.body.appendChild(link);
     link.click();

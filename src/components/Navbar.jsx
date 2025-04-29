@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import video1Img from "../assets/images/video1.jpg"; // Adjust the path as necessary
 const Navbar = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,7 +19,7 @@ const Navbar = () => {
         onClick={openModal}
       >
         <img
-          src="../src/assets/images/video1.jpg"
+          src={video1Img}
           alt="Story"
           className="w-full h-full rounded-full object-cover"
         />
