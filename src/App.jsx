@@ -27,6 +27,14 @@ const App = () => {
     rotation: Math.floor(Math.random() * 20 - 10), // -10 to +10 deg
   }));
 
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/public/pdf/batch2025.pdf"; // Adjust the path as necessary
+    link.download = "batch2025.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <div
       className="min-h-screen flex flex-col bg-cover bg-no-repeat bg-center overflow-hidden"
@@ -62,9 +70,9 @@ const App = () => {
       </div>
       {/* Floating Download Button */}
       <button
+        onClick={handleDownload}
         className="fixed bottom-4 right-4 bg-[#584738] text-white p-3 rounded-full shadow-lg hover:bg-[#725c49] focus:outline-none cursor-pointer"
         style={{ zIndex: 40 }}
-        onClick={() => alert("Download initiated!")} // Replace with actual download logic
       >
         <ArrowDownwardIcon size={24} />
       </button>
