@@ -10,9 +10,11 @@ const App = () => {
       style={{ backgroundImage: `url(${bg})` }}
     >
       <Navbar />
+      {/* for desktop */}
       <div className="hidden md:flex justify-center items-center flex-grow">
         <Book />
       </div>
+      {/* for mobile */}
       <div className="flex md:hidden justify-center items-center flex-grow">
         <Book />
       </div>

@@ -12,73 +12,162 @@ import secondYearImage2 from "../assets/images/book/SECOND YEAR (2).png";
 const Book = () => {
   return (
     <>
-      <div className="hidden md:flex justify-center items-center h-full w-full transform translate-x-[-10%] ">
+      {/* <div className="hidden md:flex border justify-center object-cover items-center h-full w-full transform translate-x-[-10%] translate-y-[-50%]">
         <HTMLFlipBook
-          width={150}
-          height={250}
-          maxHeight={50}
-          maxWidth={50}
+          width={500} // Adjusted width to match image size
+          height={800} // Adjusted height to match image size
           showCover={true}
           flippingTime={2000}
           className="bg-cover bg-no-repeat bg-center"
         >
           <div className="demoPage">
-            <img src={image1} alt="" />
+            <img src={image1} alt="" className="" />
           </div>
           <div className="demoPage">
-            <img src={image2} alt="" />
+            <img src={image2} alt="" className="" />
           </div>
           <div className="demoPage">
-            <img src={secondyearImage} alt="" />
+            <img
+              src={secondyearImage}
+              alt=""
+              className=""
+            />
           </div>
           <div className="demoPage">
-            <img src={secondYearImage2} alt="" />
+            <img
+              src={secondYearImage2}
+              alt=""
+              className=""
+            />
           </div>
           <div className="demoPage">
-            <img src={image5} alt="" />
+            <img src={image5} alt="" className="" />
           </div>
           <div className="demoPage">
-            <img src={image6} alt="" />
+            <img src={image6} alt="" className="" />
           </div>
           <div className="demoPage">
-            <img src={image7} alt="" />
+            <img src={image7} alt="" className="" />
           </div>
           <div className="demoPage">
-            <img src={lastimage} alt="" />
+            <img
+              src={lastimage}
+              alt=""
+              className=""
+            />
+          </div>
+        </HTMLFlipBook>
+      </div> */}
+      <div className="hidden md:flex justify-center items-center h-screen w-screen ">
+        <HTMLFlipBook
+          width={300} // match image width
+          height={450} // match image height
+          showCover={true}
+          flippingTime={2000}
+          className="bg-cover bg-no-repeat bg-center"
+        >
+          <div className="demoPage">
+            <img
+              src={image1}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={image2}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={secondyearImage}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={secondYearImage2}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={image5}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={image6}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={image7}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
+          </div>
+          <div className="demoPage">
+            <img
+              src={lastimage}
+              alt=""
+              className="w-[600px] h-[500px] object-contain"
+            />
           </div>
         </HTMLFlipBook>
       </div>
+
       <div className="flex md:hidden justify-center items-center h-full w-full">
         <HTMLFlipBook
-          width={300}
-          height={400}
+          width={300} // Adjusted width to match image size
+          height={450} // Adjusted height to match image size
           showCover={true}
           flippingTime={2000}
           className="bg-cover bg-no-repeat bg-center"
         >
           <div className="demoPage">
-            <img src={image1} alt="" />
+            <img src={image1} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="demoPage">
-            <img src={image2} alt="" />
+            <img src={image2} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="demoPage">
-            <img src={secondyearImage} alt="" />
+            <img
+              src={secondyearImage}
+              alt=""
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="demoPage">
-            <img src={secondYearImage2} alt="" />
+            <img
+              src={secondYearImage2}
+              alt=""
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="demoPage">
-            <img src={image5} alt="" />
+            <img src={image5} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="demoPage">
-            <img src={image6} alt="" />
+            <img src={image6} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="demoPage">
-            <img src={image7} alt="" />
+            <img src={image7} alt="" className="w-full h-full object-cover" />
           </div>
           <div className="demoPage">
-            <img src={lastimage} alt="" />
+            <img
+              src={lastimage}
+              alt=""
+              className="w-full h-full object-cover"
+            />
           </div>
         </HTMLFlipBook>
       </div>

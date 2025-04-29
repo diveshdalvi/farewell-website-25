@@ -1,15 +1,47 @@
+/* Import Tailwind CSS */
 @import "tailwindcss";
 
+/* Spotify Font Faces */
+@font-face {
+  font-family: 'Circular';
+  src: url('https://open.scdn.co/fonts/CircularSpUIv3T-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('https://open.scdn.co/fonts/CircularSpUIv3T-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom Fonts (Duhit & Oblata) */
 @font-face {
   font-family: Duhit;
   src: url("/public/fonts/Duhit-Regular.otf");
 }
+
 @font-face {
   font-family: Oblata;
   src: url("/public/fonts/OblataDisplayRegular-Zp8o8.otf");
 }
 
-@theme {
+/* Root Variables */
+:root {
+  --spotify-green: #1DB954;
+  --spotify-black: #191414;
   --font-Duhit: Duhit, "sans-serif";
   --font-Oblata: Oblata, "sans-serif";
+}
+
+/* Global Styles */
+body {
+  font-family: 'Circular', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--spotify-black);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
