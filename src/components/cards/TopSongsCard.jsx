@@ -1,18 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import SpotifyLogo from "../SpotifyLogo"; // You can use this for logos or any icon
 
 /**
- * Expected `data` shape for various card types:
- * - `topProjects`: { title, projects }
- * - `topSubjects`: { title, subjects }
- * - `topGoogleSearches`: { title, searches }
- * - `mostVisitedPlaces`: { title, locations }
- * - `mostUsedWords`: { title, words }
- * - `topGroupMembers`: { title, members }
+ * Generic Data Card component for multiple types:
+ * - Supports topProjects, topSubjects, topGoogleSearches, etc.
  */
 
-const TopSongsCard = ({ data }) => {
+const DataCard = ({ data }) => {
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -95,107 +89,43 @@ const TopSongsCard = ({ data }) => {
 
       <div className="flex flex-col h-full p-8 text-white relative z-10">
         <motion.div
-          className="mb-4 flex items-center"
+          className="mb-4"
           initial="hidden"
           animate="visible"
           variants={headerAnimation}
         >
-          <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-700 mr-4">
-            <img
-              src={data.userImage}
-              alt="User"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <div className="text-sm opacity-80 mb-1">{data.country}</div>
-            <h2 className="font-bold text-xl uppercase">
-              {data.title || data.type}
-            </h2>
-          </div>
+          <h2 className="font-bold text-2xl uppercase">
+            {data.title || data.type}
+          </h2>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 gap-4"
+          className="grid grid-cols-1 gap-4"
           initial="hidden"
           animate="visible"
           variants={container}
         >
-          {data.projects &&
-            data.projects.map((project, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="flex flex-col gap-3">
-                  <div className="text-sm font-medium">
-                    {idx + 1}. {project.name}
-                  </div>
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-32 object-cover rounded-md"
-                  />
-                </div>
-              </motion.div>
-            ))}
-
-          {data.subjects &&
-            data.subjects.map((subject, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">{subject.name}</div>
-                <div className="text-xs opacity-80">{subject.description}</div>
-              </motion.div>
-            ))}
-
           {data.searches &&
             data.searches.map((search, idx) => (
               <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">
+                <div className="text-lg font-medium">
                   {idx + 1}. {search.query}
-                </div>
-              </motion.div>
-            ))}
-
-          {data.locations &&
-            data.locations.map((location, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">
-                  {idx + 1}. {location.name}
-                </div>
-                <img
-                  src={location.image}
-                  alt={location.name}
-                  className="w-full h-32 object-cover rounded-md"
-                />
-              </motion.div>
-            ))}
-
-          {data.words &&
-            data.words.map((word, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">{word.word}</div>
-              </motion.div>
-            ))}
-
-          {data.members &&
-            data.members.map((member, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">
-                  {idx + 1}. {member.name}
                 </div>
               </motion.div>
             ))}
         </motion.div>
 
-        <div className="mt-auto flex justify-between items-center">
-          {/* <SpotifyLogo /> */}
-          <span className="text-3xl font-bold">
-            {data.totalTime
-              ? `${Math.floor(data.totalTime / 1440)} days`
-              : "N/A"}
-          </span>
-        </div>
+        {/* Hide if totalTime is not relevant */}
+        {data.totalTime && (
+          <div className="mt-auto flex justify-between items-center">
+            <span className="text-3xl font-bold">
+              {Math.floor(data.totalTime / 1440)} days
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default TopSongsCard;
+export default DataCard;

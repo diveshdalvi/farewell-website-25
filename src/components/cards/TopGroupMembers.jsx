@@ -1,7 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const TopArtistsFeaturedCard = ({ data }) => {
+/**
+ * Expected `data` shape:
+ * {
+ *   id: string,
+ *   type: string,
+ *   title: string,
+ *   members: Array<{ name: string }>
+ * }
+ */
+
+const TopGroupMembers = ({ data }) => {
   const headerAnimation = {
     hidden: { opacity: 0, y: -20 },
     visible: {
@@ -13,11 +23,11 @@ const TopArtistsFeaturedCard = ({ data }) => {
     },
   };
 
-  const projectAnimation = {
-    hidden: { opacity: 0, scale: 0.9 },
+  const memberAnimation = {
+    hidden: { opacity: 0, x: -30 },
     visible: (i) => ({
       opacity: 1,
-      scale: 1,
+      x: 0,
       transition: {
         delay: 0.2 + i * 0.1,
         duration: 0.4,
@@ -65,49 +75,34 @@ const TopArtistsFeaturedCard = ({ data }) => {
           animate="visible"
           variants={headerAnimation}
         >
-          <h2 className="font-bold text-xl sm:text-2xl md:text-3xl text-white ">
-            {data.title}
-          </h2>
+          <h2 className="font-bold text-3xl">{data.title}</h2>
         </motion.div>
 
         <div className="flex-grow space-y-4">
-          {data.projects.map((project, idx) => {
-            // Separate description from the project name
-            const descriptionMatch = project.name.match(/\((.*?)\)/);
-            const description = descriptionMatch ? descriptionMatch[1] : null;
-            const projectName = project.name.replace(/\(.*?\)/, "").trim();
-
-            return (
-              <motion.div
-                key={idx}
-                className="flex items-start"
-                custom={idx}
-                initial="hidden"
-                animate="visible"
-                variants={projectAnimation}
-              >
-                <span className="text-xs font-semibold mr-3 mt-1">
-                  {idx + 1}.
-                </span>
-                <div>
-                  <div className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
-                    {projectName}
-                  </div>
-                  {description && (
-                    <div className="text-xs opacity-80 mt-1 text-white">
-                      {description}
-                    </div>
-                  )}
+          {data.members.map((member, idx) => (
+            <motion.div
+              key={idx}
+              className="flex items-start"
+              custom={idx}
+              initial="hidden"
+              animate="visible"
+              variants={memberAnimation}
+            >
+              <span className="text-xs font-semibold mr-3 mt-1">
+                {idx + 1}.
+              </span>
+              <div>
+                <div className="text-sm sm:text-lg md:text-xl font-semibold leading-tight ">
+                  {member.name}
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         <div className="mt-auto pt-6">
-          <span className="text-xl font-bold">
-            {data.projects?.length?.toLocaleString?.() || "0"} Projects
-            Completed
+          <span className="text-xl font-bold opacity-80">
+            {data.members?.length?.toLocaleString?.() || "0"} Legends Only
           </span>
         </div>
       </div>
@@ -115,4 +110,4 @@ const TopArtistsFeaturedCard = ({ data }) => {
   );
 };
 
-export default TopArtistsFeaturedCard;
+export default TopGroupMembers;

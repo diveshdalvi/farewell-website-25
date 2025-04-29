@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Book from "./components/Book";
-import bg from "./assets/images/bg.jpeg";
+import bg from "./assets/images/lastBG.png";
+// import bg from "./assets/images/bg.jpeg";
 // import bg from "./assets/images/bg[1].jpg";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import img1 from "./assets/images/homepage/img1.png";

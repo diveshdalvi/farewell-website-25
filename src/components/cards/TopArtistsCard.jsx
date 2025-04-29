@@ -4,13 +4,25 @@ import SpotifyLogo from "../SpotifyLogo";
 
 /**
  * Expected `data` shape:
+ * For topProjects:
  * {
+ *   type: "topProjects",
  *   title: string,
  *   totalProjects: number,
  *   projects: Array<{
  *     name: string,
  *     image: string,
  *     completions: number
+ *   }>
+ * }
+ *
+ * For topSubjects:
+ * {
+ *   type: "topSubjects",
+ *   title: string,
+ *   subjects: Array<{
+ *     name: string,
+ *     description: string
  *   }>
  * }
  */
@@ -95,57 +107,64 @@ const TopArtistsCard = ({ data }) => {
 
       <div className="flex flex-col h-full p-8 text-white relative z-10">
         <motion.div
-          className="mb-4 flex items-center"
+          className="mb-6"
           initial="hidden"
           animate="visible"
           variants={headerAnimation}
         >
-          <div className="w-20 h-20 rounded-full overflow-hidden bg-gray-700 mr-4">
-            <img
-              src={data.userImage}
-              alt="User"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div>
-            <div className="text-sm opacity-80 mb-1">Your Top</div>
-            <h2 className="font-bold text-xl uppercase">Projects</h2>
-          </div>
+          <div className="text-sm opacity-80 mb-1">Your Top</div>
+          <h2 className="font-bold text-2xl uppercase">
+            {data.type === "topSubjects" ? "Subjects" : "Projects"}
+          </h2>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-2 gap-4"
+          className="flex flex-col gap-4 overflow-y-auto"
           initial="hidden"
           animate="visible"
           variants={container}
         >
-          <div className="flex flex-col gap-3">
-            {Array.isArray(data.projects) &&
-              data.projects.slice(0, 5).map((project, idx) => (
-                <motion.div key={idx} variants={item}>
-                  <div className="text-sm font-medium">
-                    {idx + 1}. {project.name}
-                  </div>
-                </motion.div>
-              ))}
-          </div>
-          <div className="flex flex-col gap-3">
-            {Array.isArray(data.projects) &&
-              data.projects.slice(5, 10).map((project, idx) => (
-                <motion.div key={idx} variants={item}>
-                  <div className="text-sm font-medium">
-                    {idx + 6}. {project.name}
-                  </div>
-                </motion.div>
-              ))}
-          </div>
+          {data.type === "topSubjects" &&
+            data.subjects.map((subject, idx) => (
+              <motion.div key={idx} variants={item}>
+                <div className="text-base font-semibold">
+                  {idx + 1}. {subject.name}
+                </div>
+                <div className="text-sm opacity-80">{subject.description}</div>
+              </motion.div>
+            ))}
+
+          {data.type === "topProjects" && Array.isArray(data.projects) && (
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-3">
+                {data.projects.slice(0, 5).map((project, idx) => (
+                  <motion.div key={idx} variants={item}>
+                    <div className="text-sm font-medium">
+                      {idx + 1}. {project.name}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              <div className="flex flex-col gap-3">
+                {data.projects.slice(5, 10).map((project, idx) => (
+                  <motion.div key={idx} variants={item}>
+                    <div className="text-sm font-medium">
+                      {idx + 6}. {project.name}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
         </motion.div>
 
-        <div className="mt-auto flex justify-between items-center">
+        <div className="mt-auto flex justify-between items-center pt-6">
           {/* <SpotifyLogo /> */}
-          <span className="text-3xl font-bold">
-            {data.totalProjects?.toLocaleString?.() || "0"}
-          </span>
+          {data.type === "topProjects" && (
+            <span className="text-3xl font-bold">
+              {data.totalProjects?.toLocaleString?.() || "0"}
+            </span>
+          )}
         </div>
       </div>
     </div>

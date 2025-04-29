@@ -17,47 +17,26 @@ export const cardData = [
     title: "Top 5 Subjects (Survived, Not Loved)",
     subjects: [
       {
-        name: "Advanced Maths III",
-        description: "Still don't know what happened here.",
+        name: "Engineering Mathematics 3",
+        description: "Only thing I integrated was my regret.",
       },
       {
-        name: "Engineering Mechanics",
-        description: "Tried balancing forces. Couldn’t balance GPA",
+        name: "Engineering Graphics",
+        description: "Lines were straight, GPA wasn’t.",
       },
       {
-        name: "DBMS",
-        description: "Can't explain normalization but passed somehow.",
+        name: "Microprocessor",
+        description: "Processor worked, my brain didn’t.",
       },
+
       {
         name: "Machine Learning",
         description: "Learnt nothing, still passed.",
       },
       {
-        name: "NLP (Natural Language Processing)",
+        name: "NLP",
         description: "Understood syntax, not viva questions.",
       },
-    ],
-  },
-
-  {
-    id: "attendence",
-    type: "attendence",
-    title: "Attendance Analytics",
-    subjects: [
-      {
-        name: "Most Attended Lecture",
-        description: "Internal Viva Day (for obvious reasons)",
-      },
-      {
-        name: "Least Attended",
-        description: "Anything at 8 AM. We’re engineers, not farmers",
-      },
-      {
-        name: "Highest Attendance Record",
-        description: "72.6% – a national achievement.",
-      },
-      { name: "Marked Present by Friend", description: "112 heroic times." },
-      { name: "Sprinted for Proxy", description: "Legends never walk." },
     ],
   },
 
@@ -88,18 +67,6 @@ export const cardData = [
   },
 
   {
-    id: "most-visited-places",
-    type: "mostVisitedPlaces",
-    title: "Most Visited Locations on Campus",
-    locations: [
-      { name: "Library – peace and naps" },
-      { name: "Lab (last-minute project panic)" },
-      { name: "Canteen – More gossip, less food." },
-      { name: "Back Bench (permanent residence)" },
-    ],
-  },
-
-  {
     id: "most-used-words",
     type: "mostUsedWords",
     title: "Most Used Words During Engineering",
@@ -121,6 +88,21 @@ export const cardData = [
       { name: "Backup Bhai: Said “mai kar lunga” and vanished" },
       { name: "Moral Support Bhai: Kept saying “ho jaayega”" },
       { name: "Report Bhai: Copy-pasted everything from seniors" },
+    ],
+  },
+  {
+    id: "mr-ms-aids",
+    type: "mr&msAIDS",
+    title: "Mr. and Ms. AIDS 2025",
+    contestants: [
+      {
+        title: "Mr. AIDS",
+        name: "Coming soon",
+      },
+      {
+        title: "Ms. AIDS",
+        name: "Coming soon",
+      },
     ],
   },
 ];

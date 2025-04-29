@@ -8,6 +8,8 @@ import TopSongsCard from "../components/cards/TopSongsCard";
 import TopArtistsFeaturedCard from "../components/cards/TopArtistsFeaturedCard";
 import TopSongsFeaturedCard from "../components/cards/TopSongsFeaturedCard";
 import { cardData } from "../data/mockData";
+import TopGroupMembers from "../components/cards/TopGroupMembers";
+import MrandMsAIDS from "../components/cards/MrandMsAIDS";
 
 const Wrapped2025 = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -45,6 +47,10 @@ const Wrapped2025 = () => {
         return <TopArtistsFeaturedCard data={card} />;
       case "mostUsedWords":
         return <TopSongsFeaturedCard data={card} />;
+      case "topGroupMembers":
+        return <TopGroupMembers data={card} />;
+      case "mr&msAIDS":
+      return <MrandMsAIDS data={card} />;
       default:
         return null;
     }

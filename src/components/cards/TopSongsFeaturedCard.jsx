@@ -1,16 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import SpotifyLogo from "../SpotifyLogo";
 
 /**
  * Expected `data` shape:
  * {
+ *   id: string,
+ *   type: string,
  *   title: string,
- *   stats: string,
- *   projects: Array<{
- *     name: string,
- *     image: string
- *   }>
+ *   words: Array<{ word: string }>
  * }
  */
 
@@ -26,7 +23,7 @@ const TopSongsFeaturedCard = ({ data }) => {
     },
   };
 
-  const projectAnimation = {
+  const wordAnimation = {
     hidden: { opacity: 0, x: -30 },
     visible: (i) => ({
       opacity: 1,
@@ -75,35 +72,29 @@ const TopSongsFeaturedCard = ({ data }) => {
           animate="visible"
           variants={headerAnimation}
         >
-          <p className="text-sm opacity-80 mb-1">Engineering Life</p>
+          <p className="text-sm opacity-100 mb-1">Engineering Life</p>
           <h2 className="font-bold text-3xl">{data.title}</h2>
-          <p className="text-sm opacity-80 mt-1">by Spotify</p>
         </motion.div>
 
         <div className="flex-grow my-4">
           <div className="space-y-4">
-            {data.projects.map((project, idx) => (
+            {data.words.map((word, idx) => (
               <motion.div
                 key={idx}
                 className="flex items-center"
                 custom={idx}
                 initial="hidden"
                 animate="visible"
-                variants={projectAnimation}
+                variants={wordAnimation}
               >
                 <div className="bg-white/10 w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold mr-2">
                   {idx + 1}
                 </div>
                 <div className="flex items-center flex-grow">
-                  <div className="w-12 h-12 rounded-md overflow-hidden mr-2 bg-black/20">
-                    <img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
                   <div>
-                    <div className="font-medium text-sm">{project.name}</div>
+                    <div className="font-bold text-xs sm:text-sm md:text-lg lg:text-xl ">
+                      {word.word}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -114,7 +105,7 @@ const TopSongsFeaturedCard = ({ data }) => {
         <div className="mt-auto flex justify-between items-center">
           {/* <SpotifyLogo /> */}
           <span className="uppercase text-sm font-bold tracking-widest">
-            {data.stats}
+            {data.id}
           </span>
         </div>
       </div>
