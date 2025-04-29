@@ -10,25 +10,25 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center py-1 px-2 bg-[#CCBDA6] relative">
-      <span className="text-xl md:text-2xl font-Oblata text-[#584738] flex flex-col text-center">
+      {/* <span className="text-xl md:text-2xl font-Oblata text-[#584738] flex flex-col text-center">
         Batch of{" "}
         <span className="text-2xl md:text-3xl font-semibold">2025</span>
-      </span>
+      </span> */}
+      <button
+        className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-tr cursor-pointer from-pink-500 via-red-500 to-yellow-500 p-1"
+        onClick={openModal}
+      >
+        <img
+          src="../src/assets/images/video1.jpg"
+          alt="Story"
+          className="w-full h-full rounded-full object-cover"
+        />
+      </button>
       <span className="font-Duhit text-[#5D4B3D] text-2xl md:text-4xl">
         Farewell
       </span>
       <div className="flex items-center space-x-4">
         {/* Instagram-style round button */}
-        <button
-          className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-tr cursor-pointer from-pink-500 via-red-500 to-yellow-500 p-1"
-          onClick={openModal}
-        >
-          <img
-            src="../src/assets/images/video1.jpg"
-            alt="Story"
-            className="w-full h-full rounded-full object-cover"
-          />
-        </button>
 
         {/* Wrapped button */}
         <button

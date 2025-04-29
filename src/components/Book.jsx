@@ -127,8 +127,8 @@ const Book = () => {
 
       <div className="flex md:hidden justify-center items-center h-full w-full">
         <HTMLFlipBook
-          width={300} // Adjusted width to match image size
-          height={450} // Adjusted height to match image size
+          width={350} // Adjusted width to match image size
+          height={500} // Adjusted height to match image size
           showCover={true}
           flippingTime={2000}
           className="bg-cover bg-no-repeat bg-center"

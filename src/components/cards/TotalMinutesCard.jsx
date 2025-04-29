@@ -1,44 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-/**
- * Expected `data` shape:
- * {
- *   totalTime: number, // in minutes
- *   totalSubmissions: number,
- *   totalLectures: number,
- *   totalVivas: number,
- *   totalProjects: number
- * }
- */
-
 const TotalMinutesCard = ({ data }) => {
-  const numberAnimation = {
+  const totalDays = (data.totalTime / 1440).toFixed(2);
+
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.4,
+      },
+    },
+  };
+
+  const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        delay: 0.4,
+        duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
       },
     },
   };
-
-  const textAnimation = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.2,
-      },
-    },
-  };
-
-  // Convert total time to days (assuming 1 day = 24 hours = 1440 minutes)
-  const totalDays = (data.totalTime / 1440).toFixed(2);
 
   return (
     <div
@@ -82,44 +67,69 @@ const TotalMinutesCard = ({ data }) => {
       </div>
 
       <div className="flex flex-col items-center justify-between h-full p-8 text-white relative z-10">
+        {/* Header */}
         <div className="text-center">
-          <motion.p
-            className="text-sm uppercase tracking-wider mb-1 opacity-80"
+          <motion.h1
+            className="text-3xl sm:text-4xl font-bold tracking-wide uppercase mb-2"
             initial="hidden"
             animate="visible"
-            variants={textAnimation}
+            variants={itemVariants}
           >
-            Welcome to Batch25 Wrapped
-          </motion.p>
-          <motion.p
-            className="text-lg uppercase tracking-wider font-bold"
+            Welcome to Batch25 Farewell
+          </motion.h1>
+          <motion.h2
+            className="text-lg sm:text-3xl font-semibold tracking-wide opacity-90 mt-5"
             initial="hidden"
             animate="visible"
-            variants={textAnimation}
+            variants={itemVariants}
           >
             Total Time Spent in College
-          </motion.p>
+          </motion.h2>
         </div>
 
+        {/* Main Stats Section */}
         <motion.div
-          className="text-center flex flex-col items-center"
+          className="mt-8 flex flex-col items-center text-center"
+          variants={containerVariants}
           initial="hidden"
           animate="visible"
-          variants={numberAnimation}
         >
-          <span className="text-[100px] font-bold leading-none">
-            {totalDays} Days
-          </span>
-          <p className="text-sm mt-2 opacity-80">
-            That's {data.totalSubmissions} submissions, {data.totalLectures}{" "}
-            lectures attended, and {data.totalVivas} vivas given.
-          </p>
+          {/* <motion.p className="text-4xl font-bold" variants={itemVariants}>
+            {totalDays} Days Spent
+          </motion.p> */}
+          <motion.p
+            className="text-sm  mt-2 opacity-90"
+            variants={itemVariants}
+          >
+            {data.totalLectures} Lectures Attended
+          </motion.p>
+          <motion.p
+            className="text-sm  mt-2 opacity-90"
+            variants={itemVariants}
+          >
+            {data.totalVivas} Vivas Faced
+          </motion.p>
+          <motion.p
+            className="text-sm  mt-2 opacity-90"
+            variants={itemVariants}
+          >
+            {data.totalSubmissions} Assignments Written
+          </motion.p>
+          <motion.p
+            className="text-sm  mt-2 opacity-90"
+            variants={itemVariants}
+          >
+            {data.totalProjects} Projects (Definitely Not Copied)
+          </motion.p>
+          {/* <motion.p className="text-sm mt-2 opacity-70" variants={itemVariants}>
+            Attendance: {data.attendancePercentage}%
+          </motion.p> */}
         </motion.div>
 
-        <div className="w-full flex justify-between items-center mt-auto">
-          <span className="text-xs opacity-70">
-            {data.totalProjects} Projects (Copied Successfully)
-          </span>
+        {/* Footer */}
+        <div className="w-full flex justify-between items-center mt-auto text-xs opacity-70 pt-6">
+          <span>Engineered in: {data.country}</span>
+          <span>#EngineeringLife</span>
         </div>
       </div>
     </div>
