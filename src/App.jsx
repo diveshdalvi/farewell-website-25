@@ -21,7 +21,7 @@ const App = () => {
       {/* Floating Download Button */}
       <button
         className="fixed bottom-4 right-4 bg-[#584738] text-white p-3 rounded-full shadow-lg hover:bg-[#725c49] focus:outline-none cursor-pointer"
-        style={{ zIndex: 1000 }}
+        style={{ zIndex: 40 }}
         onClick={() => alert("Download initiated!")} // Replace with actual download logic
       >
         <ArrowDownwardIcon size={24} />

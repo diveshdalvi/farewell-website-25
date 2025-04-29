@@ -120,29 +120,31 @@ const TopArtistsCard = ({ data }) => {
           variants={container}
         >
           <div className="flex flex-col gap-3">
-            {data.projects.slice(0, 5).map((project, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">
-                  {idx + 1}. {project.name}
-                </div>
-              </motion.div>
-            ))}
+            {Array.isArray(data.projects) &&
+              data.projects.slice(0, 5).map((project, idx) => (
+                <motion.div key={idx} variants={item}>
+                  <div className="text-sm font-medium">
+                    {idx + 1}. {project.name}
+                  </div>
+                </motion.div>
+              ))}
           </div>
           <div className="flex flex-col gap-3">
-            {data.projects.slice(5, 10).map((project, idx) => (
-              <motion.div key={idx} variants={item}>
-                <div className="text-sm font-medium">
-                  {idx + 6}. {project.name}
-                </div>
-              </motion.div>
-            ))}
+            {Array.isArray(data.projects) &&
+              data.projects.slice(5, 10).map((project, idx) => (
+                <motion.div key={idx} variants={item}>
+                  <div className="text-sm font-medium">
+                    {idx + 6}. {project.name}
+                  </div>
+                </motion.div>
+              ))}
           </div>
         </motion.div>
 
         <div className="mt-auto flex justify-between items-center">
           {/* <SpotifyLogo /> */}
           <span className="text-3xl font-bold">
-            {data.totalProjects.toLocaleString()}
+            {data.totalProjects?.toLocaleString?.() || "0"}
           </span>
         </div>
       </div>

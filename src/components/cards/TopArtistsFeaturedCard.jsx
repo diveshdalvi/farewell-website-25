@@ -7,10 +7,10 @@ import SpotifyLogo from "../SpotifyLogo";
  * {
  *   title: string,
  *   minutes: number,
- *   artists: Array<{
+ *   projects: Array<{
  *     name: string,
  *     image: string,
- *     plays: number
+ *     completions: number
  *   }>
  * }
  */
@@ -27,7 +27,7 @@ const TopArtistsFeaturedCard = ({ data }) => {
     },
   };
 
-  const artistAnimation = {
+  const projectAnimation = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: (i) => ({
       opacity: 1,
@@ -92,7 +92,7 @@ const TopArtistsFeaturedCard = ({ data }) => {
                 custom={idx}
                 initial="hidden"
                 animate="visible"
-                variants={artistAnimation}
+                variants={projectAnimation}
               >
                 <div className="bg-white/10 w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center font-bold mr-2">
                   {idx + 1}
@@ -119,7 +119,8 @@ const TopArtistsFeaturedCard = ({ data }) => {
 
         <div className="mt-auto flex justify-between items-center">
           <span className="text-3xl font-bold">
-            {data.totalProjects.toLocaleString()} Projects Completed
+            {data.projects?.length?.toLocaleString?.() || "0"} Projects
+            Completed
           </span>
         </div>
       </div>

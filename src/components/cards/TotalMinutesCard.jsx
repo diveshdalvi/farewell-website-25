@@ -89,7 +89,7 @@ const TotalMinutesCard = ({ data }) => {
             animate="visible"
             variants={textAnimation}
           >
-            BTech Wrapped: The Engineer's Farewell Edition
+            Welcome to Batch25 Wrapped
           </motion.p>
           <motion.p
             className="text-lg uppercase tracking-wider font-bold"
